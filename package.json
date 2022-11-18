@@ -1,0 +1,25 @@
+{
+  "name": "shopify-product-taxonomy-extractor",
+  "version": "1.0.0",
+  "description": "A extractor for the shopify product taxonomies",
+  "main": "index.js",
+  "scripts": {
+    "start":"node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gr3gorywolf/shopify-product-taxonomy-extractor.git"
+  },
+  "author": "gr3gorywolf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gr3gorywolf/shopify-product-taxonomy-extractor/issues"
+  },
+  "homepage": "https://github.com/Gr3gorywolf/shopify-product-taxonomy-extractor#readme",
+  "dependencies": {
+    "axios": "^1.1.3",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "node-fetch": "^3.3.0"
+  }
+}
