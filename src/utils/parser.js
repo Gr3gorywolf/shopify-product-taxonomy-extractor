@@ -1,21 +1,5 @@
-const fs = require('fs');
-const _ = require('lodash');
-const { set } = require('lodash');
 const { createHash } = require('./helpers');
 
-
-
-
-
-const traverse = (obj) => {
-  for (let k in obj) {
-    if (obj[k] && typeof obj[k] === 'object') {
-      traverse(obj[k])
-    } else {
-      // Do something with obj[k]
-    }
-  }
-}
 
 /** This is a description of the foo function. 
  * @param {string} rawTaxonomy - The raw taxonomy (on string)
@@ -40,10 +24,6 @@ async function parseTaxonomy(rawTaxonomy) {
       return r[hash];
     }, level)
   }
- 
-  const idMapping = traverse(result);
-   
-  console.log({ idMapping })
   return result;
 }
 

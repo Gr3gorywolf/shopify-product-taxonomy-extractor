@@ -5,14 +5,16 @@ const { parseTaxonomy } = require('./utils/parser');
 
 const distFolder = `${__dirname}/../dist`
 const rawFiles = {}
-const parsedTaxonomies = {}
 
 
 
 
 async function parseTaxonomies() {
- const parsed =  await parseTaxonomy(rawFiles['es'])
- fs.writeFileSync(`${distFolder}/parsed/es.json`,JSON.stringify(parsed));
+  for (let [lang, rawTaxonomy] of Object.entries(rawFiles)) {
+    const parsed = await parseTaxonomy(rawTaxonomy)
+    fs.writeFileSync(`${distFolder}/parsed/${lang}.json`, JSON.stringify(parsed));
+  }
+
 }
 
 async function fetchRawTaxonomies(useCacheOnly = false) {
@@ -49,9 +51,10 @@ async function extract() {
   console.log('Preparing...')
   await prepare()
   console.log('Fetching...')
-  await fetchRawTaxonomies(true);
+  await fetchRawTaxonomies();
   console.log('Parsing...')
   await parseTaxonomies();
+  console.log('Done!')
 }
 
 extract();
