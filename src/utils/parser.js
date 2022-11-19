@@ -17,7 +17,7 @@ async function parseTaxonomy(rawTaxonomy) {
         r[hash] = { result: [] };
         const data = {
           name: name.trim(),
-          id, children: r[hash].result
+          id:id.trim(), children: r[hash].result
         }
         r.result.push(data);
       }
